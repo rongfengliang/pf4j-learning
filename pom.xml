@@ -12,6 +12,7 @@
         <module>loginpluginb</module>
         <module>service-contract</module>
         <module>loginpluginc</module>
+        <module>springdemo</module>
     </modules>
     <packaging>pom</packaging>
     <properties>

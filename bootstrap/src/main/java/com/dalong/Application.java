@@ -1,15 +1,20 @@
 package com.dalong;
 
-import org.pf4j.DefaultPluginManager;
-import org.pf4j.PluginManager;
-import org.pf4j.PluginWrapper;
+import org.pf4j.*;
 
 import java.util.List;
 import java.util.function.Consumer;
 
 public class Application {
     public static void main(String[] args) {
-        PluginManager pluginManager = new DefaultPluginManager();
+        PluginManager pluginManager = new DefaultPluginManager(){
+            @Override
+            protected ExtensionFinder createExtensionFinder() {
+                DefaultExtensionFinder extensionFinder= (DefaultExtensionFinder) super.createExtensionFinder();
+                extensionFinder.addServiceProviderExtensionFinder();
+                return extensionFinder;
+            }
+        };
         pluginManager.loadPlugins();
         pluginManager.startPlugins();
         pluginManager.getPlugins().forEach(new Consumer<PluginWrapper>() {

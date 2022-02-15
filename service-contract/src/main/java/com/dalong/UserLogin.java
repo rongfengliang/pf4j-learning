@@ -6,7 +6,7 @@ import org.pf4j.ExtensionPoint;
  * @author dalong
  * userlogin service contract
  */
-public interface UserLogin extends ExtensionPoint {
+public interface UserLogin extends  ExtensionPoint {
     /**
      * userlogin service contract
      * @param name name
