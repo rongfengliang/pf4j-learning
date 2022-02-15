@@ -14,6 +14,11 @@ public class Application {
                 extensionFinder.addServiceProviderExtensionFinder();
                 return extensionFinder;
             }
+
+            @Override
+            protected ExtensionFactory createExtensionFactory() {
+                return super.createExtensionFactory();
+            }
         };
         pluginManager.loadPlugins();
         pluginManager.startPlugins();

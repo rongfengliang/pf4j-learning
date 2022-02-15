@@ -1,5 +1,6 @@
 package com.dalong;
 
+import org.hashids.Hashids;
 import org.pf4j.Extension;
 import org.pf4j.Plugin;
 import org.pf4j.PluginWrapper;
@@ -33,10 +34,10 @@ public class MyLoginPluginC extends Plugin {
     }
     @Extension
     public  static  class MyLoginC implements  UserLogin {
-
+        Hashids hashids = new Hashids("demo");
         @Override
         public String token(String name, String password) {
-            return String.format("%s-%s-plugin c",name,password);
+            return String.format("%s-%s-%s-plugin c",name,password,hashids.encode(1000));
         }
     }
 }
