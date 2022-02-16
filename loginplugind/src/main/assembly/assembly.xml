@@ -1,0 +1,38 @@
+<assembly>
+    <id>app</id>
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <includes>
+                <include>*:jar:*</include>
+            </includes>
+        </dependencySet>
+    </dependencySets>
+    <fileSets>
+        <fileSet>
+            <directory>${project.build.directory}/classes</directory>
+            <outputDirectory>classes</outputDirectory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <excludes>
+                <exclude>*-javadoc.jar</exclude>
+                <exclude>*-sources.jar</exclude>
+            </excludes>
+        </fileSet>
+        <fileSet>
+            <directory>${project.basedir}/src</directory>
+            <outputDirectory></outputDirectory>
+            <includes>
+                <include>plugin.properties</include>
+            </includes>
+        </fileSet>
+    </fileSets>
+</assembly>
+
